@@ -104,8 +104,6 @@ fi
 
 # ---- README GENERATOR FUNCTION (your original + GitHub auto-detect) ----
 generate_readme() {
-#!/usr/bin/env bash
-# neo_readme_bot.sh — fully automated Neo-level README generator
 
 # ---- User Input ----
 read -p "Project Name: " TITLE
@@ -137,6 +135,9 @@ fi
 GITHUB_PATH=$(echo "$REPOURL" | sed -E 's#https?://github.com/([^/]+)/([^/]+)(.git)?#\1/\2#')
 
 # ---- Generate README.md ----
+
+exec < /dev/tty
+
 cat > README.md <<EOF
 \`\`\`
 $BANNER
